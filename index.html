@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cronos</title>
+</head>
+<body>
+    <div class="main-wrapper">
+
+        <div class="opt-wrapper">
+          <!--CLOCK-->
+          <input type="radio" id="clock-btn" name="clock-opt" checked onclick="newOption(); clock.start();" />
+          <label for="clock-btn">RELOGIO</label>
+      
+          <!--STOPWATCH-->
+          <input type="radio" id="stopwatch-btn" name="clock-opt" onclick="newOption(); document.getElementById('spw_btn_wrapper').classList.remove('hidden'); document.getElementById('lap-wrapper').classList.remove('hidden');" />
+          <label for="stopwatch-btn">STOPWATCH</label>
+      
+          <!--TIMER-->
+          <input type="radio" id="timer-btn" name="clock-opt" onclick="newOption(); document.getElementById('timer_btn_wrapper').classList.remove('hidden');" />
+          <label for="timer-btn">CRONOMETRAR</label>
+      
+          <!--STOPWATCH CONTROLS-->
+          <div class="hidden" id="spw_btn_wrapper">
+            <button onclick="stopwatch.start_stop();">INICIAR/PARAR</button>
+            <button onclick="stopwatch.lap();">CONTAGEM</button>
+            <button onclick="stopwatch.reset();">RECOMEÇAR</button>
+          </div>
+      
+          <!--TIMER CONTROLS-->
+          <div class="hidden" id="timer_btn_wrapper">
+            <input id="timer_h" type="text" placeholder="HH" class="timer-input" />
+            <input id="timer_m" type="text" placeholder="MM" class="timer-input" />
+            <input id="timer_s" type="text" placeholder="SS" class="timer-input" />
+            <button onclick="timer.stop(); timer.start();">INICIAR</button>
+          </div>
+        </div>
+      
+        <!--LAP DISPLAY-->
+        <div id="lap-wrapper" class="hidden">
+          <p id="laps">Contagens</p>
+        </div>
+        
+        <!--CLOCK DISPLAY-->
+        <div class="clock-wrapper">
+          <p id="clock">00:00:00</p>
+        </div>
+        
+      </div>
+
+      <script src="js.js"></script>
+</body>
+</html>
